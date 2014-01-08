@@ -46,11 +46,10 @@ public class OperationFrame extends JPanel implements ActionListener{
 	private final int ENCRYPTION = 1;
 	private final int DECRYPTION = 2;
 
-	
+	Singleton instance = Singleton.getSharedInstance();
 	private JFileChooser fileChooser;
 	private File sourceFile;
 	private File destinationFile;
-	private String destinationPath;
 	
 	public OperationFrame(){
 		super();
@@ -160,6 +159,7 @@ public class OperationFrame extends JPanel implements ActionListener{
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 				sourceFile = fileChooser.getSelectedFile();
 				sourceField.setText(sourceFile.getAbsolutePath());
+				instance.setSourceFile(sourceFile);
 			}	
 		}
 		if(e.getSource() == destinationButton){
@@ -168,6 +168,7 @@ public class OperationFrame extends JPanel implements ActionListener{
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 				destinationFile = fileChooser.getSelectedFile();;
 				destinationField.setText(destinationFile.getAbsolutePath());
+				instance.setDestinationFile(destinationFile);
 			}
 		}
 		
@@ -175,8 +176,8 @@ public class OperationFrame extends JPanel implements ActionListener{
 			if(mode == ENCRYPTION && sourceFile != null && destinationFile != null){
 				startButton.setEnabled(false);
 				exitButton.setEnabled(false);
-				
-				new Thread(new Encryption()).start();
+				progressBar.setValue(0);
+				new Thread(new Encryption(progressBar,progressLabel)).start();
 				
 				startButton.setEnabled(true);
 				exitButton.setEnabled(true);
@@ -185,9 +186,9 @@ public class OperationFrame extends JPanel implements ActionListener{
 			else if(mode == DECRYPTION && sourceFile != null && destinationFile != null){
 				startButton.setEnabled(false);
 				exitButton.setEnabled(false);
-				
-				new Thread(new Decryption()).start();
-				
+				progressBar.setValue(0);
+				new Thread(new Decryption(progressBar,progressLabel)).start();
+		
 				startButton.setEnabled(true);
 				exitButton.setEnabled(true);
 			}
