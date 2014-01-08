@@ -43,8 +43,8 @@ public class OperationFrame extends JPanel implements ActionListener{
 	private JLabel destinationLabel;
 	private JLabel progressLabel;
 	private int mode = 0;
-	private static int ENCRYPTION = 1;
-	private static int DECRYPTION = 2;
+	private final int ENCRYPTION = 1;
+	private final int DECRYPTION = 2;
 
 	
 	private JFileChooser fileChooser;

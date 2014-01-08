@@ -53,15 +53,15 @@ public class SettingFrame extends JPanel implements ActionListener {
 	private int keyLength = 128;
 	private int mode = 2;
 	private boolean tableMode = false;
-	private static int ECB = 1;
-	private static int CBC = 2;
-	private static int CTR = 3;
-	private static int CFBONE = 4;
-	private static int CFBEIGHT = 5;
-	private static int OFB = 6;
-	private static int XTS = 7;
-	private static boolean TABLEOFF = false;
-	private static boolean TABLEON = true;
+	private final int ECB = 1;
+	private final int CBC = 2;
+	private final int CTR = 3;
+	private final int CFBONE = 4;
+	private final int CFBEIGHT = 5;
+	private final int OFB = 6;
+	private final int XTS = 7;
+	private final boolean TABLEOFF = false;
+	private final boolean TABLEON = true;
 	
 	private MainFrame mainFrame;
 	
