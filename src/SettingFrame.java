@@ -56,8 +56,8 @@ public class SettingFrame extends JPanel implements ActionListener {
 	private final int ECB = 1;
 	private final int CBC = 2;
 	private final int CTR = 3;
-	private final int CFBONE = 4;
-	private final int CFBEIGHT = 5;
+	private final int CFB_1 = 4;
+	private final int CFB_8 = 5;
 	private final int OFB = 6;
 	private final int XTS = 7;
 	private final boolean TABLEOFF = false;
@@ -203,9 +203,9 @@ public class SettingFrame extends JPanel implements ActionListener {
 		else if(e.getSource() == CTRRadioButton)
 			mode = CTR;
 		else if(e.getSource() == CFB1RadioButton)
-			mode = CFBONE;
+			mode = CFB_1;
 		else if(e.getSource() == CFB8RadioButton)
-			mode = CFBEIGHT;
+			mode = CFB_8;
 		else if(e.getSource() == OFBRadioButton)
 			mode = OFB;
 		else if(e.getSource() == XTSRadioButton)

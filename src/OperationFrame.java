@@ -188,7 +188,7 @@ public class OperationFrame extends JPanel implements ActionListener{
 				exitButton.setEnabled(false);
 				progressBar.setValue(0);
 				new Thread(new Decryption(progressBar,progressLabel)).start();
-		
+				
 				startButton.setEnabled(true);
 				exitButton.setEnabled(true);
 			}
